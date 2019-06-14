@@ -12,9 +12,10 @@
 from utiltools.get_by_local import GetByLocal
 
 class LoginPage(object):
-    def __init__(self, login_ini):
+    def __init__(self, login_ini,driver):
+        self.driver = driver
         self.login_ini = login_ini
-        self.get_by = GetByLocal(self.login_ini)
+        self.get_by = GetByLocal(self.login_ini,self.driver)
         pass
 
     def get_page_element(self, section, key):

@@ -1,0 +1,41 @@
+https://blog.csdn.net/yongwan5637/article/details/79193419
+
+item = self.driver.find_element_by_android_uiautomator(
+            'new UiScrollable(new UiSelector().scrollable(true).instance(0)).getChildByText(new UiSelector().className("android.widget.TextView"), "'
+            + item_name + '")')
+        item.click()
+
+self.driver.find_element_by_android_uiautomator()方法解析：
+该方法声明通过android的uiautomator查找元素
+
+resourceId 方式:
+    driver.find_element_by_android_uiautomator('new UiSelector().resourceId("%s")')
+
+text 方式
+    driver.find_element_by_android_uiautomator('new UiSelector().text("%s")')
+
+text模糊定位
+    driver.find_element_by_android_uiautomator('new UiSelector().textContains("请输入手")')
+
+textMatches 正则匹配查找
+    driver.find_element_by_android_uiautomator('new UiSelector().textMatches("^请输入手.*")')
+
+description(content-desc) 方式
+    driver.find_element_by_android_uiautomator('new UiSelector().description("%s")')
+
+index 方式
+    driver.find_element_by_android_uiautomator('new UiSelector().index("%s")')
+
+className 方式
+    driver.find_element_by_android_uiautomator('new UiSelector().className("%s")')
+
+className + index 方式
+    driver.find_element_by_android_uiautomator(
+                'new UiSelector().className("%s").childSelector(new UiSelector().index("%d"))')
+
+xpath方法定位
+    #通过同级元素定位同级元素
+    driver.find_element_by_android_uiautomator(‘new UiSelector().text("Custom View").fromParent(new UiSelector().text("Accessibility Service"))‘).click()
+    #通过父级元素定位子集元素
+    driver.find_element_by_android_uiautomator(‘new UiSelector().className("android.widget.ListView").childSelector(new UiSelector().text("Custom View"))‘).click()
+

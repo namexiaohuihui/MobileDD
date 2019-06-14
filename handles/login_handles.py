@@ -19,7 +19,7 @@ from pages.login_page import LoginPage
 class LoginHandles():
     def __init__(self, driver, login_ini):
         self.driver = driver
-        self.login_page = LoginPage(login_ini)
+        self.login_page = LoginPage(login_ini,self.driver)
         pass
 
     def verify_element_exist(self, edit):

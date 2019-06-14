@@ -16,7 +16,7 @@ import os
 sys.path.append(os.path.abspath(os.path.dirname(os.getcwd())))
 
 from utiltools.directional_motion import DirectionalMotion
-from utiltools.start_server import StartServer
+from business.start_server import StartServer
 from case.account_to_login import AccountToLogin
 
 # appWaitActivity: 切换到指定的activity
@@ -33,7 +33,7 @@ desired_caps = {
 }
 
 start = StartServer(desired_caps)
-start.start_app()
+
 
 try:
     account = AccountToLogin(start.driver)
@@ -59,7 +59,7 @@ try:
     print('密码输入完毕\n')
 
     # 点击登录按钮
-    print('点击的呢牢固\n')
+    print('点击的完毕\n')
     account.click_login_button('登录密码错误')
     print('点击完毕')
 

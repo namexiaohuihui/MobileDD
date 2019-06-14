@@ -9,15 +9,23 @@
 # @Site    : 
 # @desc:
 
+import time
+
 
 class DirectionalMotion(object):
 
     def __init__(self, driver, time_motion):
+        """
+        模拟上下左右滑动屏幕
+        :param driver:   appium驱动对象
+        :param time_motion:   手指滑动时间,毫秒为单位
+        """
         self.driver = driver
         self.time_motion = time_motion
         pass
 
     def swipe_on(self, direction: str):
+        time.sleep(2)
         direction = "swipe_" + direction
         function = getattr(self, direction)
         function()

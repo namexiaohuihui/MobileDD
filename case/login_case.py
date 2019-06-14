@@ -18,12 +18,15 @@ sys.path.append(os.path.abspath(os.path.dirname(os.getcwd())))
 
 import unittest
 
-from utiltools.directional_motion import DirectionalMotion
 from business.start_server import StartServer
 from case.account_to_login import AccountToLogin
 
 
 class ParameTestCase(unittest.TestCase):
+    """
+    执行case用例时可接收传入参数的写法
+    """
+
     def __init__(self, methodName='runTest', parame=None):
         super(ParameTestCase, self).__init__(methodName)
         global parames
@@ -31,12 +34,13 @@ class ParameTestCase(unittest.TestCase):
 
 
 class LoginCase(ParameTestCase):
+
     @classmethod
     def setUpClass(cls):
         print("读取配置信息:%s\n" % parames)
 
     def setUp(cls):
-        print("执行前置动作:%s\n"%parames)
+        print("执行前置动作:%s\n" % parames)
         cls.start = StartServer(parames)
         pass
 
@@ -79,6 +83,7 @@ class LoginCase(ParameTestCase):
         self.hahahaha()
         self.start.driver.save_screenshot(r'E:\test_01.png')
         pass
+
     @unittest.skip('qweqw')
     def test_02(self):
         print("this is test_02")

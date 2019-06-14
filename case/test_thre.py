@@ -35,7 +35,6 @@ def get_suite(i):
     suite = unittest.TestSuite()
     suite.addTest(LoginCase("test_01", parame=i))
     suite.addTest(LoginCase("test_02", parame=i))
-    # unittest.TextTestRunner().run(suite)
     report_path = os.path.join(CUR_PATH, day_now)
     if not os.path.exists(report_path): os.mkdir(report_path)
 
